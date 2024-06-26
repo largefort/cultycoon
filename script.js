@@ -8,7 +8,8 @@ let gameState = {
     commonFollowers: 0,
     warriorFollowers: 0,
     mysticFollowers: 0,
-    shrineLevel: 0, // New building
+    shrineLevel: 0, // Shrine building
+    goldMineLevel: 0, // Gold mine building
     prestigePoints: 0, // For prestige system
     questCompleted: 0 // To track quests completed
 };
@@ -119,6 +120,17 @@ function buildShrine() {
     }
 }
 
+function buildGoldMine() {
+    if (gameState.gold >= 300) {
+        gameState.gold -= 300;
+        gameState.goldMineLevel += 1;
+        updateUI();
+        saveGame();
+    } else {
+        alert("Not enough gold to build a Gold Mine.");
+    }
+}
+
 // Prestige Function
 function prestige() {
     if (gameState.followers >= 1000) {
@@ -142,6 +154,7 @@ function resetGame() {
         warriorFollowers: 0,
         mysticFollowers: 0,
         shrineLevel: gameState.shrineLevel, // Preserve shrine level
+        goldMineLevel: gameState.goldMineLevel, // Preserve gold mine level
         prestigePoints: gameState.prestigePoints,
         questCompleted: 0 // Reset quests completed
     };
@@ -165,13 +178,20 @@ function updateUI() {
     document.getElementById("gold").innerText = gameState.gold;
     document.getElementById("power").innerText = gameState.power;
     document.getElementById("temple-level").innerText = gameState.templeLevel;
+    document.getElementById("shrine-level").innerText = gameState.shrineLevel;
+    document.getElementById("gold-mine-level").innerText = gameState.goldMineLevel;
+    document.getElementById("common-followers").innerText = gameState.commonFollowers;
+    document.getElementById("warrior-followers").innerText = gameState.warriorFollowers;
+    document.getElementById("mystic-followers").innerText = gameState.mysticFollowers;
     document.getElementById("quests-completed").innerText = gameState.questCompleted;
 }
 
 // Auto-generate resources
 setInterval(() => {
     gameState.followers += gameState.templeLevel; // Followers generation rate based on temple level
-    gameState.gold += gameState.templeLevel * 2; // Gold generation based on temple level
+    gameState.gold += gameState.goldMineLevel * 5; // Gold generation based on gold mine level
+    gameState.faith += gameState.shrineLevel * 2; // Faith generation based on shrine level
+    gameState.followers += gameState.shrineLevel; // Followers recruitment rate based on shrine level
     updateUI();
     saveGame();
 }, 5000); // Every 5 seconds
