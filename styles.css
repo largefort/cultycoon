@@ -16,6 +16,8 @@ body {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
     text-align: center;
     width: 400px;
+    max-height: 100vh;
+    overflow-y: auto;
 }
 
 h1 {
@@ -41,7 +43,7 @@ button:hover {
     background-color: #555;
 }
 
-#resources, #actions, #buildings, #followers-types, #prestige, #quests {
+#resources, #follower-stats, #actions, #buildings, #followers-types, #prestige, #quests {
     margin-top: 20px;
 }
 
@@ -64,3 +66,4 @@ button:focus {
         margin: 10px 0;
     }
 }
+
