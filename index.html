@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Idle Cult Tycoon</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="game-container">
+        <h1>Idle Cult Tycoon</h1>
+        <div id="resources">
+            <h2>Resources</h2>
+            <p>Followers: <span id="followers">0</span></p>
+            <p>Faith: <span id="faith">0</span></p>
+            <p>Gold: <span id="gold">0</span></p>
+            <p>Power: <span id="power">0</span></p>
+        </div>
+        <div id="actions">
+            <h2>Actions</h2>
+            <button onclick="recruitFollower()">Recruit Follower</button>
+            <button onclick="performRitual()">Perform Ritual</button>
+        </div>
+        <div id="buildings">
+            <h2>Buildings</h2>
+            <button onclick="buildTemple()">Build Temple (100 Gold)</button>
+            <button onclick="upgradeTemple()">Upgrade Temple (500 Gold)</button>
+            <p>Temple Level: <span id="temple-level">0</span></p>
+            <button onclick="buildShrine()">Build Shrine (200 Gold)</button>
+        </div>
+        <div id="followers-types">
+            <h2>Followers</h2>
+            <button onclick="recruitCommonFollower()">Recruit Common Follower (10 Gold)</button>
+            <button onclick="recruitWarriorFollower()">Recruit Warrior Follower (50 Gold)</button>
+            <button onclick="recruitMysticFollower()">Recruit Mystic Follower (100 Gold)</button>
+        </div>
+        <div id="prestige">
+            <h2>Prestige</h2>
+            <button onclick="prestige()">Prestige</button>
+        </div>
+        <div id="quests">
+            <h2>Quests</h2>
+            <button onclick="completeQuest()">Complete Quest</button>
+            <p>Quests Completed: <span id="quests-completed">0</span></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
