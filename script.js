@@ -194,7 +194,7 @@ setInterval(() => {
     gameState.followers += gameState.shrineLevel; // Followers recruitment rate based on shrine level
     updateUI();
     saveGame();
-}, 5000); // Every 5 seconds
+}, 1000); // Every 5 seconds
 
 // Load game state on page load
 window.onload = loadGame;
